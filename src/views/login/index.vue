@@ -1,11 +1,33 @@
 <template>
   <div class="container">
-    <el-card></el-card>
+    <el-card>
+      <img src="../../assets/logo_index.png" alt />
+      <el-form :model="LoginForm">
+        <el-form-item>
+          <el-input v-model="form.name"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-input v-model="form.name" style="width:240px;margin-right:8px"></el-input>
+          <el-button>发送验证码</el-button>
+        </el-form-item>
+        <el-checkbox :value="true">我已阅读并同意用户协议和隐私条款</el-checkbox>
+        <el-form-item>
+          <el-button type="primary" @click="onSubmit" style="width:100%;margin-top:35px">立即创建</el-button>
+        </el-form-item>
+      </el-form>
+    </el-card>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      checked: '',
+      form: { name: '' }
+    }
+  }
+}
 </script>
 
 <style lang='less'>
@@ -24,6 +46,11 @@ export default {}
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    img {
+      width: 200px;
+      margin: 0 auto 20px;
+      display: block;
+    }
   }
 }
 </style>
